@@ -1,0 +1,174 @@
+
+<body>
+    <div class="w3-top" style="font-size: 15px; ">
+        <div class="w3-bar w3-white w3-card" id="myNavbar" style="padding: 10px;">
+            <a href="#home" class="w3-bar-item w3-button w3-wide"><strong>Welcome to the TECHNO WRITE</strong></a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="#home" class="w3-bar-item w3-button" routerLink="/homepage" routerLinkActive="active">HOME</a>
+                <a href="#about" class="w3-bar-item w3-button" routerLink="/about" routerLinkActive="active">ABOUT</a>                
+                <a href="#contact" class="w3-bar-item w3-button" routerLink="/contact" routerLinkActive="active"><i class="fa fa-envelope" ></i> CONTACT</a>
+                <a href="#AdminLogin" class="w3-bar-item w3-button" routerLink="/AdminLogin" routerLinkActive="active" (click)="Logout()">LOGOUT</a>  
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <br><br><br><br>
+    <div class="container">
+        <form class="form-horizontal" role="form" #userform='ngForm'(ngSubmit)='saveQuestion(Question)'>
+            <h3 style="text-align: center;">Add Question</h3>
+            <br>
+
+            <!-- <div class="form-group" [class.has.error]="idcontrol.touched && idcontrol.invalid">
+                
+                <div class="col-sm-9" class="b">
+                    <input type="text" size="80%" id="id" placeholder="Question id" class="form-control" name= "Questionid" required autofocus [(ngModel)]='Question.Question_id'  #idcontrol='ngModel'/>
+                </div>
+                <span class='help-block alert-danger' *ngIf='idcontrol.touched && idcontrol.invalid'>
+                 Question Id cannot be blank
+                </span>                
+            </div> -->
+
+            <div class="form-group" [class.has.error]="namecontrol.touched && namecontrol.invalid">
+               
+                <div class="col-sm-9" class="b">
+                    <select id="Course_id" class="form-control"  name="Course_id" [(ngModel)] = "Courseid">
+                        <option value="select a course" selected="true">Select a course</option>
+                        <option *ngFor="let course of courses"  value={{course.Course_id}}>{{course.Course_name}}</option>
+                    </select>
+                </div>
+                
+                <span class='help-block alert-danger' *ngIf='namecontrol.touched && namecontrol.invalid'>
+                    Course cannot be blank
+                </span>                
+            </div>
+
+            <div class="form-group" [class.has.error]="namecontrol.touched && namecontrol.invalid">
+                
+                <div class="col-sm-9" class="b">
+                    <input type="text" size="80%" id="name2" placeholder="Question Number" class="form-control" name= "second" required autofocus [(ngModel)]='Question.Question_No'  #namecontrol='ngModel'/>
+                </div>
+                <span class='help-block alert-danger' *ngIf='namecontrol.touched && namecontrol.invalid'>
+                    Question number cannot be blank
+                </span>                
+            </div>
+            
+            <div class="form-group" [class.has.error]="emailcontrol.touched && emailcontrol.invalid">
+                
+                <div class="col-sm-9" class="b">
+                    <input type='text' id='email' placeholder="QUESTION" name='email' class="form-control" required [(ngModel)]='Question.Question1' #emailcontrol='ngModel'/>
+                </div>
+                <span class='help-block alert-danger' *ngIf='emailcontrol.touched && emailcontrol.invalid'>
+                    Question cannot be blank
+                </span>
+            </div>
+
+            <div class="form-group" [class.has.error]="passcontrol.touched && passcontrol.invalid">
+               
+                <div class="col-sm-9" class="b">
+                    <input type="text" id="password" placeholder="Option1" class="form-control"  name='pass' required [(ngModel)]='Question.Option_1' #passcontrol='ngModel'/>
+                </div>
+                <span class='help-block alert-danger' *ngIf='passcontrol.touched && passcontrol.invalid'>
+                    Options cannot be blank
+                </span>
+            </div>  
+
+            <div class="form-group" [class.has.error]="passcontrol.touched && passcontrol.invalid">
+               
+                <div class="col-sm-9" class="b">
+                    <input type="text" id="password" placeholder="Option2" class="form-control"  name='pass' required [(ngModel)]='Question.Option_2' #passcontrol='ngModel'/>
+                </div>
+                <span class='help-block alert-danger' *ngIf='passcontrol.touched && passcontrol.invalid'>
+                    Options cannot be blank
+                </span>
+            </div> 
+
+
+            <div class="form-group" [class.has.error]="passcontrol.touched && passcontrol.invalid">
+               
+                <div class="col-sm-9" class="b">
+                    <input type="text" id="password" placeholder="Option3" class="form-control"  name='pass' required [(ngModel)]='Question.Option_3' #passcontrol='ngModel'/>
+                </div>
+                <span class='help-block alert-danger' *ngIf='passcontrol.touched && passcontrol.invalid'>
+                    Options cannot be blank
+                </span>
+            </div> 
+
+            <div class="form-group" [class.has.error]="passcontrol.touched && passcontrol.invalid">
+               
+                <div class="col-sm-9" class="b">
+                    <input type="text" id="password" placeholder="Option4" class="form-control"  name='pass' required [(ngModel)]='Question.Option_4' #passcontrol='ngModel'/>
+                </div>
+                <span class='help-block alert-danger' *ngIf='passcontrol.touched && passcontrol.invalid'>
+                    Options cannot be blank
+                </span>
+            </div> 
+
+            
+            <div class="form-group" [class.has.error]="mobilecontrol.touched && mobilecontrol.invalid">
+                
+                <div class="col-sm-9" class="b">
+                    <input type="phoneNumber" id="phoneNumber" placeholder="Level" name="phoneNumber " class="form-control" required [(ngModel)]='Question.Level_id' #mobilecontrol='ngModel'/>
+                    
+                </div>
+                <span class='help-block alert-danger' *ngIf='mobilecontrol.touched && mobilecontrol.invalid'>
+                    Level_id cannot be blank
+                </span>
+            </div>
+
+            <div class="form-group" [class.has.error]="citycontrol.touched && citycontrol.invalid">
+                
+                <div class="col-sm-9" class="b">
+                    <input type="text" id="city" class="form-control" name="city" placeholder="Correct Answer" required [(ngModel)]='Question.Correct_answer' #citycontrol='ngModel'/>
+                  
+                </div>
+                <span class='help-block alert-danger' *ngIf='citycontrol.touched && citycontrol.invalid'>
+                    Correct answer cannot be blank
+                </span>
+            </div>
+            <br>
+            
+            
+            
+            <button type="submit" class="btn btn-dark btn-lg btn-block"  [disabled]='userform.invalid'>Add Question</button>
+        
+            <br>
+           
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  
+    <footer class="bg-light text-center text-md-start " style="position:relative;width: 100%;bottom:0; background-color:lightgray ;">
+        <!-- Copyright -->
+        <div class="w3-medium w3-padding-30 bg dark">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        
+        <br>
+          © 2020 Copyright:
+          <a class="text-dark" href="https://mdbootstrap.com/">Techno Write</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>  

@@ -1,0 +1,118 @@
+<body>
+    <div class="w3-top" style="font-size: 15px; ">
+        <div class="w3-bar w3-white w3-card" id="myNavbar" style="padding: 10px;">
+            <a href="#home" class="w3-bar-item w3-button w3-wide"><strong>Welcome to the TECHNO WRITE</strong></a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="#" class="w3-bar-item w3-button" routerLink="/homepage" routerLinkActive="active">HOME</a>
+                <a href="#about" class="w3-bar-item w3-button" routerLink="/about" routerLinkActive="active">ABOUT</a>                
+                <a href="#contact" class="w3-bar-item w3-button" routerLink="/contact" routerLinkActive="active"><i class="fa fa-envelope" ></i> CONTACT</a>
+                <a href="#AdminLogin" class="w3-bar-item w3-button" routerLink="/AdminLogin" routerLinkActive="active" (click)="Logout()">LOGOUT</a>  
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+      <br>
+      <br>
+      <br>
+    <div class="container">
+        
+        <form class="form-horizontal" role="form" #userform='ngForm'(ngSubmit)='ViewResult(Reports) '>
+            <h3>Search Students</h3>
+
+        <div class='form-group'>
+            
+                <div class="col-sm-9" class="b">
+                    <label>Select course</label>
+                    <select id="Course_id" class="form-control"  name="Course_id" [(ngModel)] = "Reports.Course_name">
+                        <option value=" " selected >Select a course</option>
+                        <option *ngFor="let course of courses"  value={{course.Course_name}}>{{course.Course_name}}</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-9" class="b">
+                    <label>Select state</label>
+                    <select id="Course_id" class="form-control"  name="Userid" [(ngModel)] = "Reports.State">
+                        <option  disabled="" selected="">Select a State</option>
+                        <option *ngFor="let st of state"  value={{st}}>{{st}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-9" class="b">
+                    <label>Select city</label>
+                    <input type="text" size="80%" id="city" placeholder="Enter your city" class="form-control" name= "city" required autofocus [(ngModel)]="Reports.City" />
+                </div>
+                <div class="col-sm-9" class="b">
+                    <label>Marks</label>
+                    <input type="text" size="80%" id="name2" placeholder="Minimum_marks" class="form-control" name= "second" required autofocus [(ngModel)]="Reports.Minimum_marks" />
+                </div>
+                <br>
+                
+                <button type="submit" class="btn btn-dark btn-lg btn-block"  >Search</button>
+        
+        
+                            
+            
+            </div>
+       
+       </form>
+    </div>
+    <br>
+    
+
+    
+     <div *ngIf="studentFound">  
+        <h3 style="color: whitesmoke;">Student Records</h3>
+        
+        
+        <table>
+            
+            
+            <tr>
+                <th>Fullname</th>
+                <th>Email</th>
+                <th>Contact</th>
+                <th>City</th>
+                <th>State</th>            
+            </tr>
+            <tr *ngIf="!studentFound"> <td>Records Will be displayed if found !!!</td> </tr>
+            <tr *ngFor="let s of students">
+                <td>{{s.Fullname}}</td>
+                <td>{{s.Email}}</td>
+                <td>{{s.Phone_no}}</td>
+                <td>{{s.City}}</td>
+                <td>{{s.State}}</td>
+
+            
+            </tr>
+        </table>
+    </div>
+    <footer class="bg-light text-center text-md-start " style="position:fixed;width: 100%;bottom:0; background-color:lightgray ;">
+        <!-- Copyright -->
+        <div class="w3-medium w3-padding-30 bg dark">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        
+        <br>
+          © 2020 Copyright:
+          <a class="text-dark" href="https://mdbootstrap.com/">Techno Write</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>
+        
+       
+    
+        
+    
+     
+     

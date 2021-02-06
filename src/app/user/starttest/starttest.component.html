@@ -1,0 +1,78 @@
+
+<body>
+  <div class="w3-top" style="font-size: 15px; ">
+    <div class="w3-bar w3-white w3-card" id="myNavbar" style="padding: 10px;">
+        <a href="#home" class="w3-bar-item w3-button w3-wide"><strong>Welcome to the TECHNO WRITE</strong></a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+            <a href="#" class="w3-bar-item w3-button" routerLink="/homepage" routerLinkActive="active">HOME</a>
+            <a href="#about" class="w3-bar-item w3-button" routerLink="/about" routerLinkActive="active">ABOUT</a>                
+            <a href="#contact" class="w3-bar-item w3-button" routerLink="/contact" routerLinkActive="active"><i class="fa fa-envelope" ></i> CONTACT</a>
+            <a href="#UserLogin" class="w3-bar-item w3-button" routerLink="/UserLogin" routerLinkActive="active" (click)="Logout()">LOGOUT</a>  
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+            onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</div>
+  <br><br><br><br><br><br>
+
+ 
+<div class='container' style="font-size: 17px;padding-left: 8%;">
+  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2 class="text-left"><b>Online Assessment Guidelines</b></h2> <br/>  
+       <ul><b>
+         <li>The examination will comprise of Objective type Multiple Choice Questions (MCQs) </li>
+         <li>There will be Three different levels. Each level contains of Ten questions and each question carries One mark.</li>
+         <li>Total time alloted for the exam (including all the levels) is 30 mins, which is 10 mins alloted for each level. </li> 
+         <li>There will be NO NEGATIVE MARKING for the wrong answers.</li>
+         <li>The Time of the examination begins only when the ‘START EXAM’ button is pressed.</li>
+         <li>The Time remaining is shown in the Right Top Corner of the screen.</li>
+        <li>The timer automatically stops when the time limit is over OR alternatively if
+            examinee finishes the exam before time he can quit by pressing the ‘Submit Test’
+            button.</li>
+         <li>Make sure that your laptop/Desktop is fully charged.</li>
+          <li>Make sure you have a good and stable internet connection.</li>
+        </b>
+         </ul>
+         <br>
+        <h4 class="text-left"><strong>ALL THE BEST!!!</strong></h4>
+      
+       <br>
+        <button type="submit"[routerLink]="['/test/',courseid]" class="btn btn-dark btn-success"> START EXAM</button> 
+       
+  
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+
+  <footer class="bg-light text-center text-md-start " style="position:relative;width: 100%;bottom:0; background-color:lightgray ;">
+    <!-- Copyright -->
+    <div class="w3-medium w3-padding-30 bg dark">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    
+    <br>
+      © 2020 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/">Techno Write</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+  
+  
+  

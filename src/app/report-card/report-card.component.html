@@ -1,0 +1,69 @@
+<body>
+    <div class="w3-top" style="font-size: 15px; ">
+        <div class="w3-bar w3-white w3-card" id="myNavbar" style="padding: 10px;">
+            <a href="#home" class="w3-bar-item w3-button w3-wide"><strong>Welcome to the TECHNO WRITE</strong></a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="#" class="w3-bar-item w3-button" routerLink="/homepage" routerLinkActive="active">HOME</a>
+                <a href="#about" class="w3-bar-item w3-button" routerLink="/about" routerLinkActive="active">ABOUT</a>                
+                <a href="#contact" class="w3-bar-item w3-button" routerLink="/contact" routerLinkActive="active"><i class="fa fa-envelope" ></i> CONTACT</a>
+                <a href="#Userlogin" class="w3-bar-item w3-button" routerLink="/UserLogin" routerLinkActive="active"  (click)="Logout()">LOGOUT</a>  
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <br>
+      <br>
+      <br>
+      <br>
+<div>
+    <br><br><br>
+    <h3 style="color: whitesmoke;">TEST HISTORY</h3>
+    <table>
+            
+          
+        <tr>
+            <th>Course Name</th>
+            <th>Level1 Marks</th>
+            <th>Level2 Marks</th>
+            <th>Level3 Marks</th>
+            <th>Test Date</th>            
+        </tr>
+        
+        
+    
+        <tr *ngFor="let r of reports">
+            <td>{{r.Course.Course_name}}</td>
+            <td>{{r.Level_1_Marks}}</td>
+            <td>{{r.Level_2_Marks}}</td>
+            <td>{{r.Level_3_Marks}}</td>
+            <td>{{r.Test_Date | date:'shortDate'}}</td>
+
+        
+        </tr>
+        
+        
+    </table>
+</div>
+<footer class="bg-light text-center text-md-start " style="position:fixed;width: 100%;bottom:0; background-color:lightgray ;">
+    <!-- Copyright -->
+    <div class="w3-medium w3-padding-30 bg dark">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    
+    <br>
+      © 2020 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/">Techno Write</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>

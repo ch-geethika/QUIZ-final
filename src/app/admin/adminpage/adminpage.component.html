@@ -1,0 +1,90 @@
+
+<!-- <button><a routerLink="/ViewQuestions"routerLinkActive="active">View Questions</a></button>
+<br>
+<br>
+<button><a routerLink="/AdminPage"routerLinkActive="active">View Reports</a></button> -->
+
+<!-- <body>
+    <div class="id">
+        <br><br><br><br>
+        <label>Welcome Admin!</label>
+        <br><br><br>
+
+        <img class="img-responsive login-img" src='assets/home.jpg' style="margin-top: 10%;width: 1000%;"> 
+    
+    <button type="button" class="btn btn-dark btn-lg" style="font-size: 1em;"><a routerLink="/display"routerLinkActive="active">View Questions</a></button>
+    </div>
+    <br><br><br>
+    <div>
+        <button type="button" class="btn btn-dark btn-lg" style="font-size: 1em;">&nbsp;&nbsp;View Reports &nbsp;</button>
+    </div>
+    <br><br>
+    <br><br> <br><br><br><br><br>
+
+</body> -->
+
+<body>
+    <div class="w3-top" style="font-size: 15px; ">
+        <div class="w3-bar w3-white w3-card" id="myNavbar" style="padding: 10px;">
+            <a href="#home" class="w3-bar-item w3-button w3-wide"><strong>Welcome to the TECHNO WRITE</strong></a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="#" class="w3-bar-item w3-button" routerLink="/homepage" routerLinkActive="active">HOME</a>
+                <a href="#about" class="w3-bar-item w3-button" routerLink="/about" routerLinkActive="active">ABOUT</a>                
+                <a href="#contact" class="w3-bar-item w3-button" routerLink="/contact" routerLinkActive="active"><i class="fa fa-envelope" ></i> CONTACT</a>
+                <a href="#AdminLogin" class="w3-bar-item w3-button" routerLink="/AdminLogin" routerLinkActive="active">LOGOUT</a>  
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <div id="login">
+        
+        
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="col-md-12">
+                        <form id="login-form" class="form" action="" method="post" #adminform="ngForm" novalidate
+                            class="container text-align: center" >
+                            <h3 class="text-center text-dark">Welcome Admin!</h3>
+                            <br>
+                            <br>
+                            
+                            
+                            <div class="form-group">
+                                
+                                <button type="button" class="btn btn-dark btn-lg btn-block" style="font-size: 2em;"><a style="color: white;" routerLink="/display"routerLinkActive="active">View Questions</a></button>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <button type="button" class="btn btn-dark btn-lg btn-block" style="font-size: 2em;"><a style="color: white;" routerLink="/searchreports"routerLinkActive="active">Search Students</a></button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light text-center text-md-start " style="position: fixed;;width: 100%;bottom:0; background-color:lightgray ;">
+        <!-- Copyright -->
+        <div class="w3-medium w3-padding-30 bg dark">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        
+        <br>
+          © 2020 Copyright:
+          <a class="text-dark" href="https://mdbootstrap.com/">Techno Write</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>

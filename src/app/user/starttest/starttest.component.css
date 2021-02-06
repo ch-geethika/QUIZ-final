@@ -1,0 +1,14 @@
+
+body{
+    background: url('src\assets\School-Math-scaled.jpg') fixed;
+
+    height: 120vh;
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .poz
+{
+position:absolute;bottom:5px;
+}

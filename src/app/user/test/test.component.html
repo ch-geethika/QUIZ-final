@@ -1,0 +1,114 @@
+
+
+<body >
+    <div class="w3-top" style="font-size: 15px; ">
+        <div class="w3-bar w3-white w3-card" id="myNavbar" style="padding: 10px;">
+            <a href="#home" class="w3-bar-item w3-button w3-wide"><strong>Welcome to the TECHNO WRITE</strong></a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+                <a href="#" class="w3-bar-item w3-button" routerLink="/homepage" routerLinkActive="active">HOME</a>
+            
+                <a href="#Userlogin" class="w3-bar-item w3-button" routerLink="/UserLogin" routerLinkActive="active" (click)="Logout()">LOGOUT</a>  
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
+                onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+      <br><br>
+    
+    <form class="form-horizontal" class="form" #userform='ngForm' (ngSubmit)='startTest()'>
+        <!-- <h1 style="text-align: center; color: white;">Quiz</h1> -->
+        <div class='form-group' style="padding-left: 28px;">
+            <label class="control-label col-sm-0" for ='Level_id' style="color:black">Level:</label> {{Level_id}}
+           
+        </div> 
+        <div *ngIf="TestStatus" style="padding-left: 28px;"> Timer: {{display}} </div>
+      
+ 
+
+<ng-template #Q> 
+    <div style="text-align:left; padding-right: 35%;" >
+        
+        <div class="py-2 h25" style="font: size 19px;" style="text-align:left;"><b> {{Questions[QNo]?. Question_No}} <span>. </span>{{Questions[QNo]?.Question1}}</b></div><br>
+      
+        <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3 form-group" style="text-align: left;" id="options">
+             <label class="options"><input type="radio" name="a" value ="1" required #a="ngModel" [(ngModel)] = "r1"> {{Questions[QNo]?.Option_1}}  <span class="checkmark"></span>
+             </label>
+             <br>
+              <label class="options"><input type="radio" name="a" value="2" required #a="ngModel" [(ngModel)] = "r1"> {{Questions[QNo]?.Option_2}}  <span class="checkmark"></span>
+             </label><br> 
+             <label class="options"><input type="radio" name="a" value="3" required #a="ngModel" [(ngModel)] = "r1"> {{Questions[QNo]?.Option_3}}  <span class="checkmark"></span>
+             </label> <br>
+             <label class="options"><input type="radio" name="a" value="4" required #a="ngModel" [(ngModel)] = "r1"> {{Questions[QNo]?.Option_4}} <span class="checkmark"></span> </label>
+           <br>
+           <div *ngIf="!a?.valid && (a?.dirty || a?.touched)" class="error">
+            <div *ngIf="a.errors.required">
+              Select an option
+            </div>
+          </div>
+           
+             Correct_Answer: {{Questions[QNo]?.Correct_answer}}
+
+            </div>
+   
+    <div>
+     
+       <br> <input type="button"  class="btn btn-dark btn-success"  value="Previous" (click)="Previous()">
+       &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;   &nbsp; &nbsp;  
+      
+       <input type="button" class="btn btn-dark btn-success"   style="padding-right: 4%; vertical-align: middle;"  [disabled]="QNo>=9 ? true : false" value="Next" (click)="Next()" >
+     
+       <input type="button" class="btn btn-dark btn-success poz"  value="Submit Test" (click)="submitTest()">
+       
+    </div>
+</div>
+</ng-template>
+<div class="container mt-sm-5 my-1">
+
+    <div class="question ml-sm-5 pl-sm-5 pt-2">
+    
+        <div *ngIf = "TestStatus then Q else Result"></div>
+       
+</div>
+</div> 
+    <ng-template #Result>
+    Marks scored: {{this.Marks}}/10
+    <br>
+    <br>
+        Level 1 Score: {{this.level1_Marks}}
+        <br><br><br>
+        Level 2 Score: {{this.level2_Marks}}
+        <br><br><br>
+        Level 3 Score: {{this.level3_Marks}}
+        <br><br><br>
+
+    {{Message}}
+    <br>
+    <br>
+    <div *ngIf = "!FinalStatus">
+        <input  type="button"  class="btn btn-dark btn-success poz" value="Continue" (click)="Continue()">
+     </div>
+</ng-template>
+
+    </form>
+    <footer class="bg-light text-center text-md-start " style="position:relative;width: 100%;bottom:0; background-color:lightgray ;">
+        <!-- Copyright -->
+        <div class="w3-medium w3-padding-30 bg dark">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+        
+        <br>
+          © 2020 Copyright:
+          <a class="text-dark" href="https://mdbootstrap.com/">Techno Write</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+</body>
