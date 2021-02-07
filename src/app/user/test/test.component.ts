@@ -4,6 +4,7 @@ import {QuizService} from 'src/app/services/quiz.service';
 import {IQuestion} from 'src/app/classes/iquestion';
 import { Icourse } from 'src/app/classes/icourse';
 import { ReportCard } from 'src/app/classes/report-card';
+import {IUser} from 'src/app/classes/iuser';
 
 
 @Component({
@@ -25,7 +26,6 @@ export class TestComponent implements OnInit {
 display ;
 interval;
 
-timeLeft: number = 3600;
 TestStatus:boolean = false;
 Message:string = "";
 ResultStatus:boolean=false;
@@ -106,6 +106,11 @@ Next()
   this.QNo=this.QNo+1;
   this.Reset()
 }
+Previous()
+  {
+    this.QNo=this.QNo-1;
+  }
+
 
 EndTest()
 {
@@ -139,7 +144,7 @@ submitTest()
 {
   let confirm1;
 
-  if(this.time===30)
+  if(this.time===600)
   {
     alert("Sorry the time has elapsed!")
     this.EndTest()
@@ -155,22 +160,16 @@ submitTest()
     this.EndTest()
      
     }
-    this.route.navigate(['/courses']);
+  
 
 }
 
-
-Previous()
-{
-
-  this.QNo=this.QNo-1;
-}
 
 startTimer1() {
   
   console.log("=====>");
   this.interval = setInterval(() => {
-    if(this.time === 3600)
+    if(this.time === 600)
     {
       console.log(this.time)
        this.submitTest()
@@ -182,7 +181,7 @@ startTimer1() {
      else {
       this.time++;
     }
-    this.display=this.transform( this.time)
+    this.display=this.transform(this.time)
   }, 1000);
 
 }
@@ -242,7 +241,7 @@ Reset()
  GenerateReport()
    {
      this.reportcard=new ReportCard()
-     this.reportcard.User_id=1
+     this.reportcard.User_id = parseInt(sessionStorage.getItem('userid').toString());
      this.reportcard.Course_id= this.router.snapshot.params['Course_id']
      this.reportcard.Level_1_Marks = this.level1_Marks
      this.reportcard.Level_2_Marks = this.level2_Marks
@@ -256,8 +255,6 @@ Reset()
     sessionStorage.removeItem('userid')
    }
  
-   
-
 }
 
 
